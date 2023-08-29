@@ -1,0 +1,28 @@
+version: '2'
+services:
+  frontend:
+    image: Harsha/emp-fe-comp:1.0
+    container_name: emp-fe
+    ports:
+     - "8081:8081"
+    networks:
+      - harsha-app
+  mongodb:
+    container_name: mongodb
+    image: "mongo:latest"
+    networks:
+      - harsha-app
+    volumes:
+      - mongodb:/data/db
+  emp-api:
+    container_name: empapi
+    image: harsha/boot-api:5.0
+    ports:
+     - "8080:8080"
+    networks:
+      - harsha-app
+volumes:
+  mongodb:
+networks:
+  harsha-app:
+    driver: bridge
