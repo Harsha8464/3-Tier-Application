@@ -1,28 +1,28 @@
 version: '2'
 services:
-  frontend:
-    image: harsha/emp-fe-comp:1.0
+  fe:
+    image: kammana/emp-fe-comp:1.0
     container_name: emp-fe
     ports:
-     - "8081:8081"
+     - "4200:4200"
     networks:
-      - harsha-app
+      - javahome-app
   mongodb:
     container_name: mongodb
     image: "mongo:latest"
     networks:
-      - harsha-app
+      - javahome-app
     volumes:
       - mongodb:/data/db
   emp-api:
     container_name: empapi
-    image: harsha/boot-api:5.0
+    image: kammana/boot-api:5.0
     ports:
      - "8080:8080"
     networks:
-      - harsha-app
+      - javahome-app
 volumes:
   mongodb:
 networks:
-  harsha-app:
+  javahome-app:
     driver: bridge
