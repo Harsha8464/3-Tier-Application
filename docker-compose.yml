@@ -1,7 +1,7 @@
 version: '2'
 services:
   frontend:
-    image: Harsha/emp-fe-comp:1.0
+    image: harsha/emp-fe-comp:1.0
     container_name: emp-fe
     ports:
      - "8081:8081"
